@@ -40,4 +40,7 @@ export class TodoComponent implements OnInit {
     ngOnInit() {
     }
 
+    renderTag(tags): String{
+        return tags.join(',');
+    }
 }

@@ -20,6 +20,7 @@
                 <ng-container *ngIf="!todo.isDeleted">
                     <td>{{ todo.id }}</td>
                     <td [ngClass]="{ 'completed' : todo.isCompleted }">{{ todo.name }}</td>
+                    <td><span class="badge badge-padding" *ngFor="let tag of todo.tags">{{tag""{</span></td>
                     <td>{{ todo.tags }}</td>
                     <td><button class="btn btn-warning" (click)="toggleCompleteTodo(todo)">{{
                             renderIsCompletedText(todo) }}</button></td>
