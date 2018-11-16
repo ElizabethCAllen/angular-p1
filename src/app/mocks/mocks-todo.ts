@@ -1,6 +1,6 @@
 import { Todo } from '../model/todo';
 
-export const TODOS: Todo[] = [
+export const TODO: Todo[] = [
     { id: 1, name: 'Take out trash', tags: [], isCompleted: false, isDeleted: false },
     { id: 2, name: 'Walk the dog', tags: [], isCompleted: false, isDeleted: false },
     { id: 3, name: 'Clean the bathroom', tags: [], isCompleted: false, isDeleted: false },

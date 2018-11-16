@@ -4,4 +4,4 @@ export class Todo {
   tags: string[];
   isCompleted: boolean;
   isDeleted: boolean;
-}s
+}

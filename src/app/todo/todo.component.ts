@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { Todo } from '../model/todo';
+import { TodoInterface } from '../interface/todo-interface'
 import { TODO } from '../mocks/mocks-todo';
 
 @Component({
@@ -10,18 +12,16 @@ import { TODO } from '../mocks/mocks-todo';
 })
 export class TodoComponent implements OnInit {
 
-    todos: Todo[] = TODOS;
-    newTodo: Todo = new Todo();
+    todo: TodoInterface[] = TODO;
+    newTodo: TodoInterface = new Todo();
 
     constructor() { }
 
     addTodo() {
-        const lastIndex: number = this.todos.length - 1;
-        const last: Todo = this.todos[lastIndex];
+        const lastIndex: number = this.todo.length - 1;
+        const last: TodoInterface = this.todo[lastIndex];
         this.newTodo.id = last.id + 1;
-        this.newTodo.isCompleted = false;
-        this.newTodo.isDeleted = false;
-        this.todos.push(this.newTodo);
+        this.todo.push(this.newTodo);
         this.newTodo = new Todo();
     }
 
