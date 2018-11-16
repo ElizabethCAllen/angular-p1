@@ -1,4 +1,4 @@
-import { Todo } from '../models/todo';
+import { Todo } from '../model/todo';
 
 export const TODOS: Todo[] = [
     { id: 1, name: 'Take out trash', tags: [], isCompleted: false, isDeleted: false },
