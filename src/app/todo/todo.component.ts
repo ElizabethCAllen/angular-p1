@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
-import { Todo } from '../model/todo';
-import { TodoInterface } from '../interface/todo-interface'
-import { TODO } from '../mocks/mocks-todo';
+import { Todo } from '../models/todo';
+import { TodoInterface } from '../interfaces/todo-interface';
+import { TODOS } from '../mocks/mock-todos';
 
 @Component({
     selector: 'app-todo',
@@ -12,35 +11,41 @@ import { TODO } from '../mocks/mocks-todo';
 })
 export class TodoComponent implements OnInit {
 
-    todo: TodoInterface[] = TODO;
+    todos: TodoInterface[] = TODOS;
     newTodo: TodoInterface = new Todo();
 
     constructor() { }
 
     addTodo() {
-        const lastIndex: number = this.todo.length - 1;
-        const last: TodoInterface = this.todo[lastIndex];
+        const lastIndex: number = this.todos.length - 1;
+        const last: TodoInterface = this.todos[lastIndex];
         this.newTodo.id = last.id + 1;
-        this.todo.push(this.newTodo);
-        this.newTodo = new Todo();
+        if (this.newTodo.name.trim().length >= 1) {
+            this.todos.push(this.newTodo);
+            this.newTodo = new Todo();
+        }
     }
 
-    toggleCompleteTodo(todo) {
+    toggleCompleteTodo(todo: TodoInterface) {
         todo.isCompleted = !todo.isCompleted;
     }
 
-    toggleDeleteTodo(todo) {
+    toggleDeleteTodo(todo: TodoInterface) {
         todo.isDeleted = !todo.isDeleted;
     }
 
-    renderIsCompletedText(todo) {
+    deleteTodo(todo: TodoInterface) {
+        const remove: number = this.todos.indexOf(todo);
+        if (remove !== -1) {
+            this.todos.splice(remove, 1);
+        }
+    }
+
+    renderIsCompletedText(todo: TodoInterface) {
         return todo.isCompleted ? 'Uncomplete' : 'Complete';
     }
 
     ngOnInit() {
     }
 
-    renderTag(tags): String{
-        return tags.join(',');
-    }
 }
