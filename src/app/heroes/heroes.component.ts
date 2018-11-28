@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HeroInterface } from '../interfaces/hero-interface';
-import{HeroService }from '../services/hero.service';
-import { HeroInterface } from '../interface/hero-interface';
+import{ HeroService }from '../services/hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -11,10 +10,24 @@ import { HeroInterface } from '../interface/hero-interface';
 })
 export class HeroesComponent implements OnInit {
  heroes: HeroInterface[];
- 
-  constructor(private heroSErvice: HeroService) { }
+ filter= 'all';
+
+  constructor(private heroService: HeroService) { }
+updateFilter(filter:string){
+  this.filter
+}
+
+getHeroes(filter: string){
+  this.heroes = this.heroService.getHeroes(filter);
+}
+filterIsActive(filter:string){
+  return this.filter=== filter;
+}
 
   ngOnInit() {
+    this.getHeroes(this.filter);
+    console.log(this.heroes);
+    
   }
 
 }

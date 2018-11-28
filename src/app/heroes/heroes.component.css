@@ -1,0 +1,23 @@
+.heroBox{
+    width: 90%;
+    height: 150px;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 2px;
+    border:1px solid #000033;
+}
+.center-btn{
+    display: block;
+    width: 60px;
+    margin: 0 auto;
+}
+.hero{
+    background-color: #046767
+}
+.villain{
+    background-color: #315443;
+}
+.filter-toggle{
+    display: flex;
+    justify-content: center
+}
