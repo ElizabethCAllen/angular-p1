@@ -10,21 +10,22 @@ export class HeroService {
 
 
   constructor() { }
-    getHeroes(filter:string):HeroInterface[]{
-      if (filter === 'all') {return HEROES;}
-      return HEROES.filter( hero => {
-        if (filter === 'hero' && hero.hero){
-          return hero.hero;
-          else if (filter === 'villian' && !hero.hero){
-          return !hero.hero;
-          }
-        }
-      });
-    }
+
+  getHeroes(filter:string):HeroInterface[]{
+    if (!filter) {return HEROES;}
+     return HEROES.filter( hero => {
+       if (filter === 'hero' && hero.hero){
+         return hero.hero;
+         else if (filter === 'villian' && !hero.hero){
+         return !hero.hero;
+         }
+        // return hero.powers.include(filter);
+          if (hero.powers.includes(filter)){return hero;}
+      }
+    });
   }
 
-getIndividualHero(heroId: number): HeroInterface{
-  return HEROES.find((hero)=> {
-    return hero.Id= heroId
+getIndividualHero(params: object: HeroInterface{
+  return HEROES.find(hero=> hero.id=== +params['id']);
   })
 }

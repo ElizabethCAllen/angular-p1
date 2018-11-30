@@ -14,10 +14,9 @@ export class HeroDetailComponent implements OnInit {
   constructor() { }
 
 getHero(){
-  const heroId: number= this.route.params.value.id;
-  
-
-}
+  return this.route.params.subscribe(next:params=>{
+    this.hero=this.heroService.getIndividualHero(params);
+  })
 
   ngOnInit() {
   }

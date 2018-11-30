@@ -1,3 +1,25 @@
-<p>
-  hero-detail works!
-</p>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">{{hero.name}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{hero.img}}" alt="{{hero.name}}" class="img-responsive">
+    </div>
+    <div class="col-md-8">
+      <p>alter ego: {{ hero.alter}}</p>
+      <div>
+        <p>bio:</p>
+        <p>{{hero.bio}}</p>
+      </div>
+      <div>
+        <p>powers:</p>
+        <div>''
+          <span class="badge">*ngFor="let power of hero.powers" {{powers}} [routerLink]="['/heroes/', power]</span>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+</div>
+div.row
