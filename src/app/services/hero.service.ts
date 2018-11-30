@@ -23,3 +23,8 @@ export class HeroService {
     }
   }
 
+getIndividualHero(heroId: number): HeroInterface{
+  return HEROES.find((hero)=> {
+    return hero.Id= heroId
+  })
+}

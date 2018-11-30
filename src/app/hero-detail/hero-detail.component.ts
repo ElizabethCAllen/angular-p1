@@ -10,8 +10,14 @@ import { HeroService} from '../services/hero.service';
 export class HeroDetailComponent implements OnInit {
 
   hero:HeroInterface;
-  
+
   constructor() { }
+
+getHero(){
+  const heroId: number= this.route.params.value.id;
+  
+
+}
 
   ngOnInit() {
   }
