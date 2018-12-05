@@ -18,7 +18,7 @@ export class HeroService {
          return hero.hero;
          else if (filter === 'villian' && !hero.hero){
          return !hero.hero;
-         }
+         }~~
         // return hero.powers.include(filter);
           if (hero.powers.includes(filter)){return hero;}
       }
