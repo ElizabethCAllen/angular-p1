@@ -7,22 +7,13 @@ import { HeroInterface} from '../interfaces/hero-interface';
 })
 export class HeroService {
 
-
-
   constructor() { }
 
-  getHeroes(filter:string):HeroInterface[]{
-    if (!filter) {return HEROES;}
+  getHeroes(filter:string, powerFilter?: string):HeroInterface[]{
+    if (!filter && !powerFilter) {return HEROES;}
      return HEROES.filter( hero => {
-       if (filter === 'hero' && hero.hero){
-         return hero.hero;
-         else if (filter === 'villian' && !hero.hero){
-         return !hero.hero;
-         }~~
-        // return hero.powers.include(filter);
-          if (hero.powers.includes(filter)){return hero;}
-      }
-    });
+       if (!filter && powerFilter){ return hero.powers.includes(powerFilter);}
+          });
   }
 
 getIndividualHero(params: object: HeroInterface{
