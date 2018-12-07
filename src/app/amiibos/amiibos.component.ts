@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AmiiboService, AmiiboService } from "../services/amiibo.service";
+import { AmiiboInterface } from "../interface/amiibo-interface";
+
 @Component({
   selector: 'app-amiibos',
   templateUrl: './amiibos.component.html',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AmiibosComponent implements OnInit {
 
-  constructor() { }
+  constructor( private amiibo: AmiiboService) { }
+
+  getAmiibos() {
+    this.amiibos= this.amiibo.getAmiibos();
+  }
 
   ngOnInit() {
   }
