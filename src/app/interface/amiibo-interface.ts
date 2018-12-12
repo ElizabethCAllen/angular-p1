@@ -13,6 +13,6 @@ export interface AmiiboInterface {}
     }
     tail:string;
     type:string;
-    // curly braces {} it's an object 
-    // brackets its an array []
-}
+    // curly braces  it's an object 
+    // square brackets its an array 
+

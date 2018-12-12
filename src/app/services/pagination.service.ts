@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import  * as_ from 'underscore';
 
 @Injectable({
   providedIn: 'root'
@@ -6,10 +7,10 @@ import { Injectable } from '@angular/core';
 export class PaginationService {
 
   constructor() { }
-getPaginator(allItems:number, currentPage:number, itemsOnPage:number){
-  const pagesCount= Math.ceil(x:allItems/ itemsOnPage);
-  let firstPage:number,
-    lastPage:number;
+getPaginator(allItems: number, currentPage: number, itemsOnPage: number){
+  const pagesCount = Math.ceil(x:allItems/ itemsOnPage);
+  let firstPage: number,
+    lastPage: number;
   if (pagesCount<= 12){
     firstPage= 1;
     lastPage= pagesCount;
@@ -27,6 +28,20 @@ getPaginator(allItems:number, currentPage:number, itemsOnPage:number){
       firstPage = currentPage -2;
       lastPage = currentPage +2;
     }
+  }
+  const startIndex= (currentPage -1) *itemsOnPage;
+  const endIndex = Math.min( values:startIndex + itemsOnPage -1, allItems -1);
+  const pages = .ranges(firstPage, lastPage+1);
+  return{
+    allItems: allItems,
+    currentPage: currentPage,
+    itemsOnPage: itemsOnPage,
+    pagesCount: pagesCount,
+    firstPage: firstPage,
+    lastPage: lastPage,
+    startIndex: startIndex,
+    endIndex: endIndex,
+    pages: pages
   }
 }
 
