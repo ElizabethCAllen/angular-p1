@@ -27,7 +27,7 @@ amiibos: AmiiboInterface[];
     this.paginator = this.paginationSerive.getPaginator( amiiboCount, page, itemsOnPage: 12 );
     const startIndex = this.paginator.startIndex;
     const endIndex = this.paginator.endIndex + 1 ;
-    this.pagedItems = this.amiibos.slice(this.paginator.startIndex, endIndex);
+    this.pagedItem = this.amiibos.slice(this.paginator.startIndex, endIndex);
 
   }
 
