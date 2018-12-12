@@ -1,12 +1,12 @@
 <div class="container">
   <div class="col-md-offset-9">
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" placeholder="search" [(ngModel)]="searchText">
   </div>
   <div class="row">
     <h1 class="text-center">Amiibos</h1>
   </div>
   \<div class="row">
-    <div class="col-md-3" *ngFor="let Amiibos of pagedItems">
+    <div class="col-md-3" *ngFor="let Amiibos of pagedItems | search: searchText>
       <div class="amiibo-body">
         <h3 class="text-center">{{amibbo.name}}</h3>
         <br>

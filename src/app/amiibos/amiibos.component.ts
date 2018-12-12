@@ -22,7 +22,7 @@ amiibos: AmiiboInterface[];
     this.amiibos = this.amiibo.getAmiibos();
   }
   setPage(page: number) {
-    if (page < 1 || this.paginator.totalPages) { return; }
+    if (page < 1 || this.paginator.pagesCount) { return; }
     const amiiboCount = this.amiibos.length;
     this.paginator = this.paginationSerive.getPaginator( amiiboCount, page, itemsOnPage: 12 );
     const startIndex = this.paginator.startIndex;
