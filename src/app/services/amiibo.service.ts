@@ -7,7 +7,11 @@ import { ApiService } from "./api.service";
 export class AmiiboService {
 
   constructor(private api: ApiService) { }
+
   getAmiibos(): Subscription  {
     return this.api.get<Amiibointerface[]>('/amiibo').subscribe(next: (res) => res.amiibos);
   }
 }
+  getAmiibo(id: string){
+    return.this.api.get(`/amiibo/?tail=${id}`);
+  }

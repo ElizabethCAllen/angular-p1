@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AmiiboService, AmiiboService } from '../services/amiibo.service';
-import { AmiiboInterface } from '../interface/amiibo-interface';
-import { PaginationService } from '../services/pagination.service';
+import { AmiiboService, AmiiboService } from "../services/amiibo.service";
+import { AmiiboInterface } from "../interface/amiibo-interface";
 
 @Component({
   selector: 'app-amiibos',
@@ -11,26 +10,19 @@ import { PaginationService } from '../services/pagination.service';
 })
 export class AmiibosComponent implements OnInit {
 
-amiibos: AmiiboInterface[];
-  paginator: any = {};
-  pagedItem: AmiiboInterface[] = [];
-
-
-  constructor( private amiibo: AmiiboService, private paginationSerive: PaginationService) { }
+  constructor( private amiibo: AmiiboService) { }
 
   getAmiibos() {
-    this.amiibos = this.amiibo.getAmiibos();
+    this.amiibos= this.amiibo.getAmiibos();
   }
-  setPage(page: number) {
-    if (page < 1 || this.paginator.pagesCount) { return; }
-    const amiiboCount = this.amiibos.length;
-    this.paginator = this.paginationSerive.getPaginator( amiiboCount, page, itemsOnPage: 12 );
-    const startIndex = this.paginator.startIndex;
-    const endIndex = this.paginator.endIndex + 1 ;
-    this.pagedItem = this.amiibos.slice(this.paginator.startIndex, endIndex);
+setPage(page: number){
+  const amiiboCount = this.getAmiibos.length;
+  this.paginator = this. paginatorService.getPaginator(amiiboCount, page, itemsOnPage:12);
+  if (page < 1 || page > this.paginator.pagesCount){
 
   }
-
+}
+setAmiibos()
   ngOnInit() {
   }
 

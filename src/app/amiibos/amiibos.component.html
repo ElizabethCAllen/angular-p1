@@ -5,7 +5,7 @@
   <div class="row">
     <h1 class="text-center">Amiibos</h1>
   </div>
-  \<div class="row">
+  <div class="row">
     <div class="col-md-3" *ngFor="let Amiibos of pagedItems | search: searchText>
       <div class="amiibo-body">
         <h3 class="text-center">{{amibbo.name}}</h3>
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <ng-container>
+    <ng-container *ngIf= "paginator.pages && paginator.pages.length">
       <ul class="pagination" *ngIf="paginator.pages && paginator.pages.length ">
         <li [nngclass]= "{'disabled' : paginator.currentPage ===1 ">  </li>
         <li (click)="setPage(1)"> First Page </li>
