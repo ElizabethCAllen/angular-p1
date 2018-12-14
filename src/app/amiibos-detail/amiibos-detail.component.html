@@ -1,3 +1,32 @@
-<p>
-  amiibos-detail works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="img-container">
+        <img src="{{amiibo?.image}}" alt="{amiibo?.name">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h1 class="text-center">{{amiibo?.nsme}}</h1>
+      <ul class="list-group">
+        <li class="list-group-item">Amiibo Series - <a>{{amiibo?.amiiboSeries}}</a></li>
+        <li class="list-group-item">Game Series - <a> [routerLink]="['/amiib'" {{amiibo?.gameSeries}}</a></li>
+        <li class="list-group-item">Type - {{amiibo?.type}}></li>
+      </ul>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            releases
+          </h3>
+          <div class="panel-body">
+            <ul>
+              <li>Austrailia (AU) - {{amiibo?.release.au | date: "longdate"}}</li>
+              <li>Europe (EU) - {{amiibo?.release.eu | date: "longdate"}}</li>
+              <li>Japan (JP) - {{amiibo?.release.jp | date: "longdate"}}</li>
+              <li>North AMerica (NA) - {{amiibo?.release.na | date: "longdate"}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

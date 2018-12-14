@@ -19,8 +19,7 @@ export class AmiibosDetailComponent implements OnInit {
   }
 
   getAmiibo(id: string){
-    this.amiiboService.getAmiibo(id).map();
-      this.amiibo.amiibo[0];
+    this.amiiboService.getAmiibo(id).subscribe( next(amiibo)=> {this.amiibo = amiibo.amiibo[0]});
   }
 
 
