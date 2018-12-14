@@ -8,9 +8,10 @@
     <div class="col-md-8">
       <h1 class="text-center">{{amiibo?.nsme}}</h1>
       <ul class="list-group">
-        <li class="list-group-item">Amiibo Series - <a>{{amiibo?.amiiboSeries}}</a></li>
-        <li class="list-group-item">Game Series - <a> [routerLink]="['/amiib'" {{amiibo?.gameSeries}}</a></li>
-        <li class="list-group-item">Type - {{amiibo?.type}}></li>
+        <li class="list-group-item" *ngIf= "amiibo">Amiibo Series - <a>{{amiibo?.amiiboSeries}}</a></li>
+        <li class="list-group-item" *ngIf= "!amiibo">Game Series - <a> [routerLink]="['/amiib'" {{amiibo?.gameSeries}}</a></li>
+        <li class="list-group-item" *ngIf= "amiibo">Type - <a>[routerLink]="['amiibos/'. 'gameseries'. amiibos?.gameSeries" {{amiibo?.type}}></li>
+        <li class="list-group-item" *ngIf= "!amiibo">Type - <a>[routerLink]="">{{amiibo?.type}}></a></li>
       </ul>
       <div class="panel panel-default">
         <div class="panel-heading">

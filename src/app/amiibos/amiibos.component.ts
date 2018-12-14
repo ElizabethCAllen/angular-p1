@@ -14,7 +14,7 @@ export class AmiibosComponent implements OnInit {
   constructor( private amiibo: AmiiboService) { }
 
   getAmiibos() {
-    this.router.params. subscribe( next: params =>{
+    this.router.params. subscribe( next: params => {
       this.amiiboSerive.getiFilteredAmiibos(params.categry, params.value).subscribe(next: (amiibos) => {
         this.amiibos = amiibos.amiibo;
         this.setPage(1);
@@ -30,12 +30,12 @@ export class AmiibosComponent implements OnInit {
   }
 setPage(page: number) {
   const amiiboCount = this.getAmiibos.length;
-  this.paginator = this. paginatorService.getPaginator(amiiboCount, page, itemsOnPage:12);
-  if (page < 1 || page > this.paginator.pagesCount){
+  this.paginator = this.paginatorService.getPaginator(amiiboCount, page, itemsOnPage: 12);
+  if (page < 1 || page > this.paginator.pagesCount) {
 
   }
 }
-setAmiibos()
+setAmiibos();
   ngOnInit() {
   }
 

@@ -1,5 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AmiiboService } from '../services/amiibo.service';
+import { AmiiboInterface} from '../interface/amiibo-interface';
 
 @Component({
   selector: 'app-amiibos-detail',
@@ -12,23 +14,15 @@ export class AmiibosDetailComponent implements OnInit {
 
   constructor(private amiiboService: AmiiboService, private route: ActivatedRoute) { }
 
-  getAmiiboTail(){
-    return this.route.params.subscribe(next: Params=>{
-      this.getAmiiboTail(patrams.id);
+  getAmiiboTail() {
+    return this.route.params.subscribe( Params => {
+      this.getAmiibo(Params.id);
     });
   }
-
-  getAmiibo(id: string){
-    this.amiiboService.getAmiibo(id).subscribe( next(amiibo)=> {this.amiibo = amiibo.amiibo[0]});
+  getAmiibo(id: string) {
+    this.amiiboService.getAmiibo(id).subscribe((amiibo) => {this.amiibo = amiibos.amiibo[0]});
   }
-
-
-
-  
   ngOnInit() {
   this.getAmiiboTail();
-  
   }
-
-
 }
